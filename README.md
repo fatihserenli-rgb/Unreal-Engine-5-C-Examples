@@ -12,10 +12,11 @@ A highly optimized, time-scalable day-night cycle system controlled entirely via
 * **Event-Driven Architecture (Delegates):** To prevent other actors from constantly polling the current time, this class utilizes Unreal's Delegate system. It broadcasts events at specific in-game milestones (`OnMorning`, `OnNoon`, `OnEvening`, `OnNight`). Other classes simply bind to these delegates to trigger their own logic, ensuring a decoupled and performant architecture.
 
 * ##Usage:
-1. **Add to Source:** Copy `DayManager.h` and `DayManager.cpp` into your Unreal Engine project's `Source/[YourProjectName]/` folder.
-2. **After recompiling the project open the Unreal Editor.
-3. **Drag and drop the `DayManager` actor to the level viewport.
-4. **In details panel select the `DirectionalLight` actor which is sun. And in details panel enter a desired value for `DayLength` variable to adjust length of the day in game. (for exapmle if you enter 5 here. Day length in the game will be 5 minutes in real time.)
+1. **Add to Source:** Copy `DayCycleManager.h` and `DayCycleManager.cpp` into your Unreal Engine project's `Source/[YourProjectName]/` folder.
+2. **In the class definition change `Staj_API` with `YourProjectName_API` to be able to compile it.
+3. **After recompiling the project open the Unreal Editor.
+4. **Drag and drop the `DayCycleManager` actor to the level viewport.
+5. **In details panel select the `DirectionalLight` actor which is sun. And in details panel enter a desired value for `DayLength` variable to adjust length of the day in game. (for exapmle if you enter 5 here, day length in the game will be 5 minutes in real time.)
 
 
 
@@ -43,7 +44,8 @@ A backend data management system designed for a menu-based word game.
 * ## 🛠️ Installation & Setup
 
 1. **Add to Source:** Copy `MySQLLibrary.h` and `MySQLLibrary.cpp` into your Unreal Engine project's `Source/[YourProjectName]/` folder.
-2. **Update Build.cs:** To use Unreal's built-in SQLite features, you must include the SQLite modules in your project's `.Build.cs` file. Open `[YourProjectName].Build.cs` and add `"SQLiteCore"` and `"SQLiteSupport"` to your public dependencies:
+2. **In the class definition change `CSE343Project_API` with `YourProjectName_API` to be able to compile it.
+3. **Update Build.cs:** To use Unreal's built-in SQLite features, you must include the SQLite modules in your project's `.Build.cs` file. Open `[YourProjectName].Build.cs` and add `"SQLiteCore"` and `"SQLiteSupport"` to your public dependencies:
    ```csharp
    PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "SQLiteCore", "SQLiteSupport" });
-3. **Then you can use this Library functions in your blueprint codes or in your C++ codes.
+4. **Then you can use this Library functions in your blueprint codes or in your C++ codes.
